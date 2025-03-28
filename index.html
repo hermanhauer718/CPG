@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Florida Statewide Elections Results (2000-Present)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Florida Statewide Elections</h1>
+        <h2>2000 - Present</h2>
+      </header>
+
+      <div class="filters">
+        <div class="filter-group">
+          <h3>Select Years</h3>
+          <div id="yearFilter" class="checkbox-group"></div>
+          <div class="filter-actions">
+            <button onclick="selectAllYears()">Select All</button>
+            <button onclick="clearYears()">Clear All</button>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <h3>Select Race Types</h3>
+          <div id="raceFilter" class="checkbox-group"></div>
+          <div class="filter-actions">
+            <button onclick="selectAllRaces()">Select All</button>
+            <button onclick="clearRaces()">Clear All</button>
+          </div>
+        </div>
+
+        <div class="filter-group layout-toggle">
+          <h3>Layout</h3>
+          <div class="toggle-buttons">
+            <button onclick="setLayout('grid')" class="active" id="gridButton">Grid</button>
+            <button onclick="setLayout('list')" id="listButton">List</button>
+            <button onclick="setLayout('table')" id="tableButton">Table</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="congressionalTotals" class="congressional-totals"></div>
+      <div id="electionResults" class="results-grid"></div>
+    </div>
+    <script type="module" src="/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+:root {
+  --primary-color: #003087;
+  --secondary-color: #bf0a30;
+  --background-color: #f5f5f5;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --republican-color: #bf0a30;
+  --democrat-color: #003087;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.filters {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-actions button, .toggle-buttons button {
+  flex: 1;
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filter-actions button:hover, .toggle-buttons button:hover {
+  opacity: 0.9;
+}
+
+.layout-toggle {
+  min-width: auto;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.toggle-buttons button {
+  background-color: #666;
+}
+
+.toggle-buttons button.active {
+  background-color: var(--primary-color);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.results-list .election-card {
+  max-width: 100%;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.results-table th,
+.results-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.results-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.results-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+.results-table .winner {
+  font-weight: bold;
+}
+
+.results-table .republican {
+  color: var(--republican-color);
+}
+
+.results-table .democrat {
+  color: var(--democrat-color);
+}
+
+.election-card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.election-card:hover {
+  transform: translateY(-5px);
+}
+
+.election-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.incomplete-note {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.incomplete {
+  color: #856404;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.candidate {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+.candidate.winner {
+  color: white;
+}
+
+.candidate.winner.republican {
+  background-color: var(--republican-color);
+}
+
+.candidate.winner.democrat {
+  background-color: var(--democrat-color);
+}
+
+.candidate-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.candidate .name {
+  flex-grow: 1;
+}
+
+.candidate .party {
+  margin: 0 1rem;
+}
+
+.candidate .votes {
+  text-align: right;
+  min-width: 100px;
+}
+
+.percentage-bar {
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}
+
+.percentage-bar .fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.winner .percentage-bar .fill {
+  border: 2px solid white;
+}
+
+.percentage-bar .fill.republican {
+  background-color: var(--republican-color);
+}
+
+.percentage-bar .fill.democrat {
+  background-color: var(--democrat-color);
+}
+
+.percentage-bar .fill.independent {
+  background-color: #808080;
+}
+
+.percentage-bar .fill.other {
+  background-color: #808080;
+}
+
+.congressional-totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .congressional-totals {
+    grid-template-columns: 1fr;
+  }
+
+  .results-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
